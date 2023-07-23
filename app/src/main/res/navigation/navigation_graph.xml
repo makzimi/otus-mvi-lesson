@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/selectFragment">
+
+  <fragment
+      android:id="@+id/selectFragment"
+      android:name="ru.otus.mvi.SelectFragment"
+      android:label="SelectFragment" >
+    <action
+        android:id="@+id/action_selectFragment_to_MVVMFragment"
+        app:destination="@id/MVVMFragment" />
+    <action
+        android:id="@+id/action_selectFragment_to_roxieFragment"
+        app:destination="@id/roxieFragment" />
+    <action
+        android:id="@+id/action_selectFragment_to_MVICoreFragment"
+        app:destination="@id/MVICoreFragment" />
+  </fragment>
+  <fragment
+      android:id="@+id/MVVMFragment"
+      android:name="ru.otus.mvi.presentation.mvvm.MVVMFragment"
+      android:label="MVVMFragment" />
+  <fragment
+      android:id="@+id/roxieFragment"
+      android:name="ru.otus.mvi.presentation.roxie.RoxieFragment"
+      android:label="RoxieFragment" />
+  <fragment
+      android:id="@+id/MVICoreFragment"
+      android:name="ru.otus.mvi.presentation.mvicore.MVICoreFragment"
+      android:label="MVICoreFragment" />
+</navigation>
