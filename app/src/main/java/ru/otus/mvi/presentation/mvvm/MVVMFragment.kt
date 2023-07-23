@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 import ru.otus.mvi.InjectorProvider
 import ru.otus.mvi.databinding.FragmentMvvmBinding
 import ru.otus.mvi.domain.RaMCharacter
+import ru.otus.mvi.getInjector
 import ru.otus.mvi.presentation.CharactersAdapter
 
 class MVVMFragment : Fragment() {
@@ -26,11 +27,7 @@ class MVVMFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: MVVMViewModel by viewModels(
-        factoryProducer = {
-            (requireContext().applicationContext as InjectorProvider)
-                .injector
-                .provideViewModelFactory()
-        }
+        factoryProducer = { getInjector().provideViewModelFactory() }
     )
 
     private val adapter = CharactersAdapter()

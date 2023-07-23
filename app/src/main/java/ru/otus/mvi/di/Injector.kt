@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import ru.otus.mvi.data.RAMRetrofitService
 import ru.otus.mvi.data.CharactersRepositoryImpl
 import ru.otus.mvi.presentation.CustomViewModelFactory
+import ru.otus.mvi.presentation.mvicore.Feature
 
 class Injector(private val context: Context) {
 
@@ -38,5 +39,9 @@ class Injector(private val context: Context) {
 
     fun provideViewModelFactory(): ViewModelProvider.Factory {
         return CustomViewModelFactory(provideRepository())
+    }
+
+    fun provideFeature(): Feature {
+        return Feature(charactersRepository = provideRepository())
     }
 }

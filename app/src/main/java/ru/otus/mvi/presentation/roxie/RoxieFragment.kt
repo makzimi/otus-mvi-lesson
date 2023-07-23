@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import ru.otus.mvi.InjectorProvider
 import ru.otus.mvi.databinding.FragmentRoxieBinding
 import ru.otus.mvi.domain.RaMCharacter
+import ru.otus.mvi.getInjector
 import ru.otus.mvi.presentation.CharactersAdapter
 import ru.otus.mvi.presentation.roxie.mvi.Action
 import ru.otus.mvi.presentation.roxie.mvi.State
@@ -20,11 +21,7 @@ class RoxieFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: RoxieViewModel by viewModels(
-        factoryProducer = {
-            (requireContext().applicationContext as InjectorProvider)
-                .injector
-                .provideViewModelFactory()
-        }
+        factoryProducer = { getInjector().provideViewModelFactory() }
     )
 
     private val adapter = CharactersAdapter()
