@@ -1,4 +1,4 @@
-package ru.otus.mvi.presentation.roxie
+package ru.otus.mvi.presentation.roxie.finish
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -45,12 +45,26 @@ class RoxieFragment : Fragment() {
             viewModel.dispatch(Action.LoadCharacters)
         }
 
+        viewModel.observableState.observe(viewLifecycleOwner) { state ->
+            renderState(state)
+        }
+
         viewModel.dispatch(Action.LoadCharacters)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun renderState(state: State) {
+        with(state) {
+            when {
+                isLoading -> renderLoadingState()
+                isError -> renderErrorState()
+                else -> renderNotesState(items)
+            }
+        }
     }
 
     private fun renderLoadingState() {
