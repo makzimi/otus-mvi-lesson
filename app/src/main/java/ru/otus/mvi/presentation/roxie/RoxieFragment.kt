@@ -68,7 +68,7 @@ class RoxieFragment : Fragment() {
         viewModel.dispatch(Action.ErrorShown)
     }
 
-    private fun renderNotesState(items: List<RaMCharacter>) {
+    private fun renderCharactersState(items: List<RaMCharacter>) {
         hideAll()
         adapter.submitList(items)
         binding.uiRecyclerView.visibility = View.VISIBLE
