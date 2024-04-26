@@ -1,6 +1,7 @@
 package ru.otus.mvi.data
 
 import io.reactivex.Single
+import kotlinx.coroutines.delay
 import ru.otus.mvi.domain.RaMCharacter
 import ru.otus.mvi.domain.CharactersRepository
 import java.util.Random
@@ -23,6 +24,7 @@ class CharactersRepositoryImpl(
                     )
                 }
         } else {
+            delay(1000)
             throw IllegalStateException("Server is overloaded")
         }
     }
