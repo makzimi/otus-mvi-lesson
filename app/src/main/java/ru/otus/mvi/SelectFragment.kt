@@ -29,6 +29,10 @@ class SelectFragment: Fragment() {
             findNavController().navigate(R.id.action_selectFragment_to_MVVMFragment)
         }
 
+        binding.buttonManual.setOnClickListener {
+            findNavController().navigate(R.id.action_selectFragment_to_ManualMVIFragment)
+        }
+
         binding.buttonRoxie.setOnClickListener {
             findNavController().navigate(R.id.action_selectFragment_to_roxieFragment)
         }

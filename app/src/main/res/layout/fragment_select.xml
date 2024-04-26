@@ -18,6 +18,17 @@
       />
 
   <Button
+      android:id="@+id/buttonManual"
+      android:layout_width="200dp"
+      android:layout_height="wrap_content"
+      android:text="MVI Manual"
+      app:layout_constraintBottom_toTopOf="@+id/buttonRoxie"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/buttonMVVM"
+      />
+
+  <Button
       android:id="@+id/buttonRoxie"
       android:layout_width="200dp"
       android:layout_height="wrap_content"
@@ -25,7 +36,7 @@
       app:layout_constraintBottom_toTopOf="@+id/buttonMVICore"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/buttonMVVM"
+      app:layout_constraintTop_toBottomOf="@id/buttonManual"
       />
 
   <Button

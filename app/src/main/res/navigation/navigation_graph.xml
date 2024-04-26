@@ -15,6 +15,9 @@
         android:id="@+id/action_selectFragment_to_roxieFragment"
         app:destination="@id/roxieFragment" />
     <action
+        android:id="@+id/action_selectFragment_to_ManualMVIFragment"
+        app:destination="@id/manualMVIFragment" />
+    <action
         android:id="@+id/action_selectFragment_to_MVICoreFragment"
         app:destination="@id/MVICoreFragment" />
   </fragment>
@@ -26,6 +29,10 @@
       android:id="@+id/roxieFragment"
       android:name="ru.otus.mvi.presentation.roxie.RoxieFragment"
       android:label="RoxieFragment" />
+  <fragment
+      android:id="@+id/manualMVIFragment"
+      android:name="ru.otus.mvi.presentation.manual.finish.ManualMVIFragment"
+      android:label="ManualFragment" />
   <fragment
       android:id="@+id/MVICoreFragment"
       android:name="ru.otus.mvi.presentation.mvicore.MVICoreFragment"
