@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.otus.mvi.domain.CharactersRepository
 
-typealias Dispatcher = suspend (State, Action) -> Unit
-typealias Reducer = (State, Change) -> State
+private typealias Dispatcher = suspend (State, Action) -> Unit
+private typealias Reducer = (State, Change) -> State
 
 class ManualMVIViewModel(
     private val repository: CharactersRepository,

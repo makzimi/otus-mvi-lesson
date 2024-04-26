@@ -31,7 +31,7 @@
       android:label="RoxieFragment" />
   <fragment
       android:id="@+id/manualMVIFragment"
-      android:name="ru.otus.mvi.presentation.manual.finish.ManualMVIFragment"
+      android:name="ru.otus.mvi.presentation.manual.start.ManualMVIFragment"
       android:label="ManualFragment" />
   <fragment
       android:id="@+id/MVICoreFragment"
