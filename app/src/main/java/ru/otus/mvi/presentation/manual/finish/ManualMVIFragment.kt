@@ -43,7 +43,7 @@ class ManualMVIFragment : Fragment() {
         binding.uiRecyclerView.layoutManager = LinearLayoutManager(context)
 
         binding.uiSwipeRefreshLayout.setOnRefreshListener {
-            viewModel.sendAction(Action.LoadCharacters)
+            viewModel.sendAction(Action.SwipedToRefresh)
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -54,7 +54,7 @@ class ManualMVIFragment : Fragment() {
             }
         }
 
-        viewModel.sendAction(Action.LoadCharacters)
+        viewModel.sendAction(Action.FeatureStarted)
     }
 
     override fun onDestroyView() {

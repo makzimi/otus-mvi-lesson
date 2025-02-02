@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.otus.mvi.InjectorProvider
 import ru.otus.mvi.databinding.FragmentRoxieBinding
 import ru.otus.mvi.domain.RaMCharacter
 import ru.otus.mvi.getInjector
@@ -42,14 +41,14 @@ class RoxieFragment : Fragment() {
         binding.uiRecyclerView.layoutManager = LinearLayoutManager(context)
 
         binding.uiSwipeRefreshLayout.setOnRefreshListener {
-            viewModel.dispatch(Action.LoadCharacters)
+            viewModel.dispatch(Action.SwipedToRefresh)
         }
 
         viewModel.observableState.observe(viewLifecycleOwner) { state ->
             renderState(state)
         }
 
-        viewModel.dispatch(Action.LoadCharacters)
+        viewModel.dispatch(Action.FeatureStarted)
     }
 
     override fun onDestroyView() {

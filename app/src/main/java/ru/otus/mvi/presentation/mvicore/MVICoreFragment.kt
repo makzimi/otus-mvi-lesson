@@ -12,7 +12,8 @@ import ru.otus.mvi.domain.RaMCharacter
 import ru.otus.mvi.getInjector
 import ru.otus.mvi.presentation.CharactersAdapter
 import ru.otus.mvi.presentation.mvicore.entities.State
-import ru.otus.mvi.presentation.mvicore.entities.Wish.LoadCharacters
+import ru.otus.mvi.presentation.mvicore.entities.Wish.SwipedToRefresh
+import ru.otus.mvi.presentation.mvicore.entities.Wish.FeatureStarted
 
 class MVICoreFragment : Fragment(), Consumer<State> {
     private var _binding: FragmentMvicoreBinding? = null
@@ -48,11 +49,11 @@ class MVICoreFragment : Fragment(), Consumer<State> {
         binding.uiRecyclerView.layoutManager = LinearLayoutManager(context)
 
         binding.uiSwipeRefreshLayout.setOnRefreshListener {
-            feature.accept(LoadCharacters)
+            feature.accept(SwipedToRefresh)
         }
 
         if (savedInstanceState == null) {
-            feature.accept(LoadCharacters)
+            feature.accept(FeatureStarted)
         }
     }
 

@@ -1,5 +1,6 @@
 package ru.otus.mvi.presentation.mvicore.entities
 
 sealed class Wish {
-    object LoadCharacters: Wish()
+    object FeatureStarted: Wish()
+    object SwipedToRefresh: Wish()
 }

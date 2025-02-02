@@ -38,7 +38,8 @@ class RoxieViewModel(
     }
 
     private fun bindActions() {
-        val itemsLoadedChange = actions.ofType(Action.LoadCharacters::class.java)
+        val itemsLoadedChange = actions
+            .filter { it is Action.FeatureStarted || it is Action.SwipedToRefresh }
             .switchMap {
                 repository.getAllCharactersSingle()
                     .subscribeOn(Schedulers.io())

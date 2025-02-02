@@ -43,7 +43,7 @@ class ManualMVIViewModel(
 
     private val dispatcher: Dispatcher = { state, action ->
         when (action) {
-            is Action.LoadCharacters -> {
+            Action.FeatureStarted, Action.SwipedToRefresh -> {
                 _changes.tryEmit(Change.Loading)
                 repository.getAllCharacters()
                     .onSuccess { data ->

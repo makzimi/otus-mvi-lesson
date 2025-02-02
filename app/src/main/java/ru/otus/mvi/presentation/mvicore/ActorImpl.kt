@@ -4,7 +4,7 @@ import com.badoo.mvicore.element.Actor
 import ru.otus.mvi.presentation.mvicore.entities.Effect.ErrorLoading
 import ru.otus.mvi.presentation.mvicore.entities.Effect.ItemsLoaded
 import ru.otus.mvi.presentation.mvicore.entities.Effect.StartedLoading
-import ru.otus.mvi.presentation.mvicore.entities.Wish.LoadCharacters
+import ru.otus.mvi.presentation.mvicore.entities.Wish.FeatureStarted
 import io.reactivex.Observable
 import io.reactivex.Observable.just
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -21,7 +21,7 @@ class ActorImpl(
 
     override fun invoke(state: State, wish: Wish): Observable<out Effect> {
         return when (wish) {
-            is LoadCharacters -> loadCharacters()
+            FeatureStarted, Wish.SwipedToRefresh -> loadCharacters()
                 .map { ItemsLoaded(it) as Effect }
                 .startWith(just(StartedLoading))
                 .onErrorReturn { ErrorLoading(it) }
